@@ -1,13 +1,39 @@
 import styled from '@emotion/styled';
+import React from 'react';
+
+import Header from './Header'
+import TodoMain from './TodoMain';
+
+import imageDarkMobile from './images/bg-mobile-dark.jpg'
 import imageLightMobile from './images/bg-mobile-light.jpg'
-import Header from './Header';
+
 
 function App() {
+  const [theme, setTheme] = React.useState(() => {
+    const themequery = window.matchMedia('(prefers-color-scheme: dark)');
+    return themequery.matches ? 'dark' : 'light';
+  })
+
+  // Set initial theme on mount
+  React.useEffect(() => {
+    document.documentElement.setAttribute('data-theme', theme);
+    console.log(theme)
+  }, [theme]);
+
+  const handleThemeChange = () => {
+    const newTheme = theme === 'light' ? 'dark' : 'light';
+    document.documentElement.setAttribute('data-theme', newTheme);
+    setTheme(newTheme);
+  }
 
   return (
-    <Container>
+    <Container theme={theme}>
       <Wrapper>
-        <Header></Header>
+        <Header 
+        theme={theme}
+        handleThemeChange={handleThemeChange}
+        ></Header>
+        <TodoMain></TodoMain>
       </Wrapper>
     </Container>
   )
@@ -16,11 +42,11 @@ function App() {
 const Container = styled.div`
   font-family: "Josefin Sans", sans-serif;
   min-height: 100vh;
-  background-image: url(${imageLightMobile});
-  background-size: contain;
+  background-image: url(${p => p.theme === 'dark' ? `${imageDarkMobile}` : `${imageLightMobile}`});
+  background-size: 100% 200px;
   background-repeat: no-repeat;
-  background-color: #fafafa;
-  padding: 0 calc(36rem / 16);
+  background-color: var(--bg-primary);
+  padding: 0 calc(24rem / 16);
 `;
 
 const Wrapper = styled.div`

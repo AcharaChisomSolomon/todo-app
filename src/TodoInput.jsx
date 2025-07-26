@@ -38,17 +38,17 @@ const Container = styled.form`
   color: var(--text-primary);
   display: flex;
   align-items: center;
-  gap: calc(12rem / 16);
-  padding: calc(14rem / 16) calc(20rem / 16);
-  border-radius: calc(8rem / 16);
-  font-size: calc(12rem / 16);
-  margin-top: calc(40rem / 16);
+  gap: var(--spacing-md);
+  padding: var(--input-padding-y) var(--input-padding-x);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-body);
+  margin-top: var(--spacing-6xl);
 `;
 
 const Circle = styled.div`
-  width: calc(20rem / 16);
-  height: calc(20rem / 16);
-  border: 2px solid var(--border-color);
+  width: var(--circle-size);
+  height: var(--circle-size);
+  border: var(--border-width-thick) solid var(--border-color);
   border-radius: 50%;
   flex-shrink: 0;
 `;

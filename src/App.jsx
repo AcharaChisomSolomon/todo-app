@@ -40,17 +40,17 @@ function App() {
 }
 
 const Container = styled.div`
-  font-family: "Josefin Sans", sans-serif;
+  font-family: var(--font-family);
   min-height: 100vh;
   background-image: url(${p => p.theme === 'dark' ? `${imageDarkMobile}` : `${imageLightMobile}`});
   background-size: 100% 200px;
   background-repeat: no-repeat;
   background-color: var(--bg-primary);
-  padding: 0 calc(24rem / 16);
+  padding: 0 var(--spacing-3xl);
 `;
 
 const Wrapper = styled.div`
-  max-width: calc(540rem / 16);
+  max-width: var(--list-max-width);
   margin: 0 auto;
 `;
 

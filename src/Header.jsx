@@ -20,14 +20,14 @@ const Header_ = styled.header`
   justify-content: space-between;
   align-items: center;
 
-  padding-top: calc(48rem / 16);
+  padding-top: var(--spacing-header);
 `;
 
 const Text = styled.nav`
   color: #ffffff;
-  font-weight: 700;
-  font-size: calc(20rem / 16);
-  letter-spacing: calc(12rem / 16);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-header);
+  letter-spacing: var(--spacing-md);
   line-height: 1;
 
   display: flex;
@@ -35,8 +35,8 @@ const Text = styled.nav`
 `;
 
 const ImageContainer = styled.div`
-  width: calc(20rem / 16);
-  height: calc(20rem / 16);
+  width: var(--circle-size);
+  height: var(--circle-size);
   cursor: pointer;
 `;
 

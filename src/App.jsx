@@ -1,20 +1,31 @@
 import styled from '@emotion/styled';
+import imageLightMobile from './images/bg-mobile-light.jpg'
+import Header from './Header';
 
 function App() {
 
-  return <Button>This my button component.</Button>
+  return (
+    <Container>
+      <Wrapper>
+        <Header></Header>
+      </Wrapper>
+    </Container>
+  )
 }
 
-const Button = styled.button`
-  padding: 32px;
-  background-color: hotpink;
-  font-size: 24px;
-  border-radius: 4px;
-  color: black;
-  font-weight: bold;
-  &:hover {
-    color: white;
-  }
-`
+const Container = styled.div`
+  font-family: "Josefin Sans", sans-serif;
+  min-height: 100vh;
+  background-image: url(${imageLightMobile});
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-color: #fafafa;
+  padding: 0 calc(36rem / 16);
+`;
+
+const Wrapper = styled.div`
+  max-width: calc(540rem / 16);
+  margin: 0 auto;
+`;
 
 export default App

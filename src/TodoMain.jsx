@@ -149,9 +149,6 @@ export default function TodoMain() {
           <ClearState onClick={handleClearCompleted}>Clear Completed</ClearState>
         </Clearer>
       </Options>
-      <Footer>
-        Drag and drop to reorder list
-      </Footer>
     </section>
   )
 }
@@ -190,7 +187,7 @@ const Counter = styled.div`
   border-bottom-left-radius: var(--radius-md);
   box-shadow: var(--shadow-strong);
 
-  @media (min-width: var(--breakpoint-mobile)) {
+  @media (min-width: 34.375rem) {
     flex: revert;
   }
 `;
@@ -208,7 +205,7 @@ const TodoStates = styled.div`
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-strong);
 
-  @media (min-width: var(--breakpoint-mobile)) {
+  @media (min-width: 34.375rem) {
     order: 0;
     flex-basis: auto;
     border-radius: 0;
@@ -263,11 +260,4 @@ const ClearState = styled.button`
     cursor: pointer;
     color: var(--text-primary);
   }
-`;
-
-const Footer = styled.footer`
-  color: var(--text-secondary);
-  text-align: center;
-  padding-top: var(--spacing-7xl);
-  padding-bottom: var(--spacing-9xl);
 `;

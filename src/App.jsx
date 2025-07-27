@@ -34,6 +34,9 @@ function App() {
         handleThemeChange={handleThemeChange}
         ></Header>
         <TodoMain></TodoMain>
+        <Footer>
+          Drag and drop to reorder list
+        </Footer>
       </Wrapper>
     </Container>
   )
@@ -52,6 +55,13 @@ const Container = styled.div`
 const Wrapper = styled.div`
   max-width: var(--list-max-width);
   margin: 0 auto;
+`;
+
+const Footer = styled.footer`
+  color: var(--text-secondary);
+  text-align: center;
+  padding-top: var(--spacing-7xl);
+  padding-bottom: var(--spacing-9xl);
 `;
 
 export default App

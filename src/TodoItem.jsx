@@ -13,32 +13,35 @@ export default function TodoItem({ todo, updateTodo, deleteTodo, onDragStart, on
       onDragOver={onDragOver}
       onDrop={(e) => onDrop(e, id)}
     >
-      <Description onClick={() => updateTodo(id)}>
-        <Circle completed={completed}>
-          {completed && <img src={iconCheck} />}
+      <Description 
+        onClick={() => updateTodo(id)}
+        role="checkbox"
+        aria-checked={completed}
+        aria-labelledby={`todo-text-${id}`}
+        tabIndex={0}
+        onKeyDown={(e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            updateTodo(id);
+          }
+        }}
+      >
+        <Circle completed={completed} aria-hidden="true">
+          {completed && <img src={iconCheck} alt="" />}
         </Circle>
-        <Text completed={completed}>{description}</Text>
+        <Text completed={completed} id={`todo-text-${id}`}>{description}</Text>
       </Description>
       <CrossSVG 
         className="delete-icon" 
         onClick={() => deleteTodo(id)}
+        aria-label={`Delete todo: ${description}`}
+        type="button"
       >
-        <img src={iconCross} />
+        <img src={iconCross} alt="" />
       </CrossSVG>
     </List>
   )
 };
-
-const CrossSVG = styled.button`
-  cursor: pointer;
-  background-color: inherit;
-  border: none;
-  flex-shrink: 0;
-  
-  @media (min-width: var(--breakpoint-mobile)) {
-    display: none;
-  }
-`;
 
 const List = styled.li`
   list-style: none;
@@ -75,9 +78,20 @@ const Description = styled.div`
   gap: var(--spacing-md);
   cursor: pointer;
   flex-grow: 1;
+  border: none;
+  background: none;
+  padding: 0;
+  text-align: left;
+  outline: none;
 
   &:hover div {
     border-color: var(--color-check-bg);
+  }
+
+  &:focus {
+    outline: 2px solid var(--color-primary-blue);
+    outline-offset: 2px;
+    border-radius: 4px;
   }
 `;
 
@@ -105,4 +119,22 @@ const Text = styled.p`
     text-decoration: line-through;
     color: var(--text-completed-color);
   `}
+`;
+
+const CrossSVG = styled.button`
+  cursor: pointer;
+  background-color: inherit;
+  border: none;
+  flex-shrink: 0;
+  padding: 4px;
+  border-radius: 4px;
+  
+  &:focus {
+    outline: 2px solid var(--color-primary-blue);
+    outline-offset: 2px;
+  }
+  
+  @media (min-width: 34.375rem) {
+    display: none;
+  }
 `;

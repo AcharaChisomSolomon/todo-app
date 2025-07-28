@@ -6,6 +6,8 @@ import TodoMain from './TodoMain';
 
 import imageDarkMobile from './images/bg-mobile-dark.jpg'
 import imageLightMobile from './images/bg-mobile-light.jpg'
+import imageDarkDesktop from './images/bg-desktop-dark.jpg'
+import imageLightDesktop from './images/bg-desktop-light.jpg'
 
 
 function App() {
@@ -50,6 +52,11 @@ const Container = styled.div`
   background-repeat: no-repeat;
   background-color: var(--bg-primary);
   padding: 0 var(--spacing-3xl);
+
+  @media (min-width: calc(550rem /16)) {
+    background-image: url(${p => p.theme === 'dark' ? `${imageDarkDesktop}` : `${imageLightDesktop}`});
+    background-size: 100% 300px;
+  }
 `;
 
 const Wrapper = styled.div`

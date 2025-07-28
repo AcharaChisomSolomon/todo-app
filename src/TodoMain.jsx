@@ -177,13 +177,17 @@ const Options = styled.div`
   justify-content: space-between;
   align-content: center;
   color: var(--text-secondary);
+  font-size: 14px;
+
+  @media (min-width: 34.375rem) {
+    flex-wrap: revert;
+  }
 `;
 
 const Counter = styled.div`
   background-color: var(--bg-secondary);
   flex: 1;
   padding: var(--input-padding-y) var(--input-padding-x);
-  font-size: var(--font-size-body);
   border-bottom-left-radius: var(--radius-md);
   box-shadow: var(--shadow-strong);
 
@@ -254,7 +258,6 @@ const ClearState = styled.button`
   border: none;
   padding: 0;
   margin: 0;
-  font-size: var(--font-size-body);
 
   &:hover {
     cursor: pointer;

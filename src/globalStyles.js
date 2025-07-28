@@ -98,6 +98,19 @@ export const globalStyles = css`
     --z-index-tooltip: 10;
     --z-index-dropdown: 100;
     --z-index-modal: 1000;
+
+    @media (min-width: 550px) {
+      --font-size-header: calc(40rem / 16);
+      --font-size-body: calc(18rem / 16);
+      --font-size-input: calc(18rem / 16);
+
+      --input-padding-y: calc(20rem / 16); 
+      --input-padding-x: calc(24rem / 16);
+
+      --circle-size: calc(26rem / 16);
+      --spacing-header: calc(70rem / 16);
+      --spacing-3xl: calc(24rem / 16);
+    }
   }
 
   /* Dark Theme Override */
